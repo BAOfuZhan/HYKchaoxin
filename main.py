@@ -82,6 +82,9 @@ def main(users, action=False):
     today_reservation_num = sum(
         1 for d in users if current_dayofweek in d.get("daysofweek")
     )
+    if today_reservation_num == 0:
+        logging.info("No reservations set for today")
+        return
     while current_time < ENDTIME:
         attempt_times += 1
         # try:

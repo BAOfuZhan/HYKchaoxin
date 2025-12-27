@@ -285,8 +285,9 @@ class reserve:
         html = self.requests.post(url=url, params=parm, verify=True).content.decode(
             "utf-8"
         )
+        result = json.loads(html)
         self.submit_msg.append(
-            times[0] + "~" + times[1] + ":  " + str(json.loads(html))
+            times[0] + "~" + times[1] + ":  " + str(result)
         )
-        logging.info(json.loads(html))
-        return json.loads(html)["success"]
+        logging.info(result)
+        return result.get("success", False)
