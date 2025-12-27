@@ -10,6 +10,6 @@ def _fetch_env_variables(env_name, action):
         return None
 
 def get_user_credentials(action):
-    usernames = _fetch_env_variables('USERNAMES', action)
-    passwords = _fetch_env_variables('PASSWORDS', action)
+    usernames = _fetch_env_variables('CX_USERNAME', action)
+    passwords = _fetch_env_variables('CX_PASSWORD', action)
     return usernames, passwords
