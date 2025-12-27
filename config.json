@@ -1,25 +1,22 @@
 {
     "reserve": [
         {
-            "username": "17773553020",
-            "password": "ZQWzqwzqw0402",
-            "times": ["8:00","12:00"],
+            "username": "user1",
+            "times": ["8:00", "12:00"],
             "roomid": "11385",
             "seatid": ["060"],
             "daysofweek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
         },
-             {
-            "username": "17773553020",
-            "password": "ZQWzqwzqw0402",
-            "times": ["14:00","18:00"],
+        {
+            "username": "user1",
+            "times": ["14:00", "18:00"],
             "roomid": "11385",
             "seatid": ["060"],
             "daysofweek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
         },
-             {
-            "username": "17773553020",
-            "password": "ZQWzqwzqw0402",
-            "times": ["19:00","22:00"],
+        {
+            "username": "user1",
+            "times": ["19:00", "22:00"],
             "roomid": "11385",
             "seatid": ["060"],
             "daysofweek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
