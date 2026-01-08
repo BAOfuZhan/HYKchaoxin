@@ -23,11 +23,11 @@ get_current_dayofweek = lambda action: (
 )
 
 
-SLEEPTIME = 0.2  # 每次抢座的间隔
-ENDTIME = "21:07:00"  # 根据学校的预约座位时间+1min即可
+SLEEPTIME = 0.112  # 每次抢座的间隔
+ENDTIME = "14:01:00"  # 根据学校的预约座位时间+1min即可
 
 ENABLE_SLIDER = True  # 是否有滑块验证
-MAX_ATTEMPT = 80  # 最大尝试次数
+MAX_ATTEMPT = 110  # 最大尝试次数
 RESERVE_NEXT_DAY = True  # 预约明天而不是今天的
 
 
@@ -97,6 +97,53 @@ def main(users, action=False):
         if sum(success_list) == today_reservation_num:
             print(f"reserved successfully!")
             return
+
+
+# 新功能：根据schedule.json动态生成多时间段预约（已注释）
+# def load_schedule():
+#     schedule_path = os.path.join(os.path.dirname(__file__), "schedule.json")
+#     with open(schedule_path, "r") as f:
+#         return json.load(f)
+#
+# def generate_dynamic_users(base_users, schedule):
+#     current_dayofweek = get_current_dayofweek(False)
+#     time_slots = schedule.get(current_dayofweek, [])
+#     dynamic_users = []
+#     for base_user in base_users:
+#         for time_slot in time_slots:
+#             user_copy = base_user.copy()
+#             user_copy["times"] = time_slot
+#             user_copy["daysofweek"] = [current_dayofweek]
+#             dynamic_users.append(user_copy)
+#     return dynamic_users
+#
+# def main_with_schedule(users, action=False):
+#     current_time = get_current_time(action)
+#     logging.info(f"start time {current_time}, action {'on' if action else 'off'}")
+#     attempt_times = 0
+#     usernames, passwords = None, None
+#     if action:
+#         usernames, passwords = get_user_credentials(action)
+#     success_list = None
+#     current_dayofweek = get_current_dayofweek(action)
+#
+#     schedule = load_schedule()
+#     dynamic_users = generate_dynamic_users(users, schedule)
+#     users = dynamic_users
+#
+#     today_reservation_num = len(dynamic_users)
+#     while current_time < ENDTIME:
+#         attempt_times += 1
+#         success_list = login_and_reserve(
+#             users, usernames, passwords, action, success_list
+#         )
+#         print(
+#             f"attempt time {attempt_times}, time now {current_time}, success list {success_list}"
+#         )
+#         current_time = get_current_time(action)
+#         if sum(success_list) == today_reservation_num:
+#             print(f"reserved successfully!")
+#             return
 
 
 def debug(users, action=False):
