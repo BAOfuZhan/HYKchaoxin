@@ -1,10 +1,7 @@
-name: Chaoxing Seat Reserve
-
 on:
   schedule:
-    - cron: "06 13 * * *"   # 每天 21:06（UTC+8）
+    - cron: "57 5 * * *"   # 每天 13:57（UTC+8）
   workflow_dispatch:       # 允许手动开/关
-
 jobs:
   reserve:
     runs-on: ubuntu-latest
