@@ -1,6 +1,7 @@
 on:
   schedule:
-    - cron: "57 5 * * *"   # 每天 13:57（UTC+8）
+#    - cron: "57 5 * * *"   # 每天 13:57（UTC+8）
+  - cron: "58 7 * * *"   # 每天 15:58（UTC+8）
   workflow_dispatch:       # 允许手动开/关
 jobs:
   reserve:
